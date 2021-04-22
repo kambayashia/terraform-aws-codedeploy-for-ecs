@@ -76,6 +76,16 @@ variable "description" {
   description = "The description of the all resources."
 }
 
+variable "trigger_configuration" {
+  default     = []
+  type        = list(object({
+    trigger_events = list(string)
+    trigger_name = string
+    trigger_target_arn = string
+  }))
+  description = "Configuration block(s) of the triggers for the deployment group."
+}
+
 variable "tags" {
   default     = {}
   type        = map(string)

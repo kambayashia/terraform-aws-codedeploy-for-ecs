@@ -71,6 +71,15 @@ resource "aws_codedeploy_deployment_group" "default" {
     service_name = var.ecs_service_name
   }
 
+  dynamic "trigger_configuration" {
+    for_each = var.trigger_configuration
+    content {
+      trigger_events     = each.value.trigger_events
+      trigger_name       = each.value.trigger_name
+      trigger_target_arn = each.value.trigger_target_arn
+    }
+  }
+  
   # You can configure the Load Balancer to use in a deployment.
   load_balancer_info {
     # Information about two target groups and how traffic routes during an Amazon ECS deployment.
