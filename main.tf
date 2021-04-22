@@ -232,6 +232,16 @@ data "aws_iam_policy_document" "policy" {
 
     resources = ["*"]
   }
+
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "sns:Publish",
+    ]
+
+    resources = ["*"]
+  }
 }
 
 # https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html
