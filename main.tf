@@ -74,9 +74,9 @@ resource "aws_codedeploy_deployment_group" "default" {
   dynamic "trigger_configuration" {
     for_each = var.trigger_configuration
     content {
-      trigger_events     = each.value.trigger_events
-      trigger_name       = each.value.trigger_name
-      trigger_target_arn = each.value.trigger_target_arn
+      trigger_events     = trigger_configuration.value.trigger_events
+      trigger_name       = trigger_configuration.value.trigger_name
+      trigger_target_arn = trigger_configuration.value.trigger_target_arn
     }
   }
   
