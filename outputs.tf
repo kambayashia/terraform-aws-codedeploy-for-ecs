@@ -1,3 +1,8 @@
+output "codedeploy_app_arn" {
+  value       = aws_codedeploy_app.default.arn
+  description = "Amazon's assigned arn for the application."
+}
+
 output "codedeploy_app_id" {
   value       = aws_codedeploy_app.default.id
   description = "Amazon's assigned ID for the application."
